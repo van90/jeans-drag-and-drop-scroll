@@ -155,22 +155,22 @@
                             <div dnd-list
                                  dnd-drop="onDrop(models[0], dateIndex, salePointIndex)">
 
-                                <!--<div ng-repeat="(dddIndex, ddd) in dragndropData[salePointIndex]"-->
-                                     <!--ng-if="dragndropData[salePointIndex][dddIndex].j == dateIndex"-->
-                                     <!--multiple-selection-item-->
-                                     <!--dnd-draggable="getSelectedItemsIncluding(models[0], models[0].SelectedItems)"-->
-                                     <!--dnd-dragstart="onDragstart(models[0].Visits[dragndropData[salePointIndex][dddIndex].k], dragndropData[salePointIndex][dddIndex].j, event)"-->
-                                     <!--dnd-moved="onMoved(models[0])"-->
-                                     <!--dnd-dragend="models[0].dragging = false"-->
-                                     <!--dnd-Selected="models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected = !models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected"-->
-                                     <!--ng-class="{-->
-                                        <!--'Selectable': isSelectable,-->
-                                        <!--'Selecting': isSelecting,-->
-                                        <!--'Selected': models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected || isSelected-->
-                                        <!--}"-->
-                                     <!--class="planCard">-->
-                                    <!--<br/>-->
-                                <!--</div>-->
+                                <div ng-repeat="(dddIndex, ddd) in dragndropData[salePointIndex]"
+                                     ng-if="dragndropData[salePointIndex][dddIndex].j == dateIndex"
+                                     multiple-selection-item
+                                     dnd-draggable="getSelectedItemsIncluding(models[0], models[0].SelectedItems)"
+                                     dnd-dragstart="onDragstart(models[0].Visits[dragndropData[salePointIndex][dddIndex].k], dragndropData[salePointIndex][dddIndex].j, event)"
+                                     dnd-moved="onMoved(models[0])"
+                                     dnd-dragend="models[0].dragging = false"
+                                     dnd-Selected="models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected = !models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected"
+                                     ng-class="{
+                                        'Selectable': isSelectable,
+                                        'Selecting': isSelecting,
+                                        'Selected': models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected || isSelected
+                                        }"
+                                     class="planCard">
+                                    <br/>
+                                </div>
                             </div>
                         </div>
                     </div>
