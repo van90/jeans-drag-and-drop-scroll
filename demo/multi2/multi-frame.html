@@ -1,0 +1,192 @@
+
+<style>
+    div.Selected{
+        background: yellowgreen;
+    }
+    div.Selecting{
+        background: lightgoldenrodyellow;
+    }
+    td.Selected div{
+        background: yellowgreen;
+    }
+    td.Selecting div{
+        background: yellowgreen;
+    }
+
+    span.Selecting{
+        color: white;
+    }
+
+    .select-helper {
+        position: absolute;
+        border: 1px dashed red;
+        background: red;
+        opacity: 0.2;
+    }
+
+    td{
+        width: 120px;
+    }
+
+    .div-cell{
+        width: 40px;
+        height: 20px;
+        text-align: center;
+    }
+
+    .div-row-calendar{
+        height: 20px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .div-row-tp{
+        height: 60px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .div-cell-tp{
+        width: 40px;
+        height: 60px;
+        text-align: center;
+        border-right: 1px solid #ccc;
+        padding: 5px;
+    }
+
+    .div-row-tp:nth-child(2n+1) .div-cell-tp:nth-child(2n+1){
+        background: #eee;
+    }
+
+    .div-row-tp:nth-child(2n+1) .div-cell-tp:nth-child(2n){
+        background: #ddd;
+    }
+
+    .div-row-tp:nth-child(2n) .div-cell-tp:nth-child(2n+1){
+        background: #e8e8e8;
+    }
+
+    .div-row-tp:nth-child(2n) .div-cell-tp:nth-child(2n){
+        background: #d8d8d8;
+    }
+
+    .h60{
+        height: 60px;
+    }
+
+    .planCard{
+        background: white;
+        border: 1px solid yellowgreen;
+        border-radius: 5px;
+        height: 100%;
+        text-align: center;
+        font-size: 8px;
+    }
+
+</style>
+
+<div class="row">
+
+    <div class="col-md-3">
+
+        <div class="div-row-calendar"></div>
+        <div class="div-row-calendar"></div>
+
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div ng-repeat="list in models" class="div-row-calendar">
+
+                <div class="pull-left div-cell" ng-repeat="item in list.Dates">
+
+                    <div
+                        ng-if="::item.Day === 1"
+                        class="Month"
+                    >
+                        {{::item.Month}}
+                    </div>
+
+                    <div
+                        ng-if="::item.Day === 1"
+                        class="Month"
+                    >
+                        {{::item.Month}}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div ng-repeat="list in models" class="div-row-calendar">
+                <div class="pull-left div-cell" ng-repeat="item in list.Dates">
+                    {{::item.Day}}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="row" style="overflow-y: auto;white-space: nowrap;height: 600px;">
+    <div>
+
+        <div ng-repeat="(salePointIndex, salePoint) in models[0].SalePoints">
+            <div class="col-md-3" style="overflow-x: hidden">
+                <div class="div-row-tp">
+                    {{::salePoint.Name}}<br/>
+                    <span>{{::salePoint.Address}}</span>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row" multiple-selection-zone>
+                    <div class="div-row-tp" style="overflow: inherit">
+                        <div class="div-cell-tp h60"
+                             style="display: inline-block"
+                             ng-repeat="(dateIndex, date) in models[0].Dates">
+
+
+
+                            <div dnd-list
+                                 dnd-drop="onDrop(models[0], dateIndex, salePointIndex)">
+
+                                <!--<div ng-repeat="(dddIndex, ddd) in dragndropData[salePointIndex]"-->
+                                     <!--ng-if="dragndropData[salePointIndex][dddIndex].j == dateIndex"-->
+                                     <!--multiple-selection-item-->
+                                     <!--dnd-draggable="getSelectedItemsIncluding(models[0], models[0].SelectedItems)"-->
+                                     <!--dnd-dragstart="onDragstart(models[0].Visits[dragndropData[salePointIndex][dddIndex].k], dragndropData[salePointIndex][dddIndex].j, event)"-->
+                                     <!--dnd-moved="onMoved(models[0])"-->
+                                     <!--dnd-dragend="models[0].dragging = false"-->
+                                     <!--dnd-Selected="models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected = !models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected"-->
+                                     <!--ng-class="{-->
+                                        <!--'Selectable': isSelectable,-->
+                                        <!--'Selecting': isSelecting,-->
+                                        <!--'Selected': models[0].Visits[dragndropData[salePointIndex][dddIndex].k].Selected || isSelected-->
+                                        <!--}"-->
+                                     <!--class="planCard">-->
+                                    <!--<br/>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<pre class="code">{{models[0].Visits | json}}</pre>
+<!--<pre class="code">{{dragndropData | json}}</pre>-->

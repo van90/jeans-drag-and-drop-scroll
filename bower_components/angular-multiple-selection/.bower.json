@@ -1,0 +1,28 @@
+{
+  "name": "angular-multiple-selection",
+  "version": "0.0.3",
+  "authors": [
+    "Maksym Pomazan"
+  ],
+  "description": "Multiple Selection module for AngularJS",
+  "main": "multiple-selection.js",
+  "keywords": [
+    "selection",
+    "drag",
+    "select",
+    "multiple",
+    "selection"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/maxazan/angular-multiple-selection",
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.3",
+    "commit": "0e0a5fa2ce84d2f53009a60a42d2ab0d6fc830fc"
+  },
+  "_source": "git://github.com/maxazan/angular-multiple-selection.git",
+  "_target": "~0.0.3",
+  "_originalSource": "angular-multiple-selection",
+  "_direct": true
+}
